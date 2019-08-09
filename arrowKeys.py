@@ -1,7 +1,6 @@
 import json
 from CustomRobot import CustomRobot
 import pygame
-from onrobot_rg2_gripper import OnRobotGripperRG2
 import time
 import numpy as np
 import math

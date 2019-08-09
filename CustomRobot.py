@@ -1,8 +1,8 @@
 #import urx
 import math
-from robot import Robot
+from urx.robot import Robot
 
-import urrobot
+from urx import urrobot
 
 a = 3 #acceleration
 v = 3 #velocity
