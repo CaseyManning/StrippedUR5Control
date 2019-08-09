@@ -8,11 +8,7 @@ routinePoints = json.load(open('routinePoints.json'))
 
 
 tcps = {
-    "hand": (0, 0, 0.1595, 0, 0,  0),
-    "spatula": (-0.00787, -0.2537, 0.160, 0, 0, 0),
-    "oil": (0, 0, 0, 0, 0, 0),
-    "ladle": (-0.042164, -0.073406, 0.346456, 0, 0, 0),
-    "toppings": (.02794, 0, 0.12192, 0, 0, 0)
+    "hand": (0, 0, 0.1595, 0, 0, 0)
 }
 
 robot = None

@@ -1,4 +1,4 @@
-# Scrambld
+# UR5 Control
 
 ## Requirements
 
@@ -16,7 +16,7 @@ From the menu in the top right menu, go to `Settings > System > Remote Control` 
 
 Then, go to 'System > Network` and copy down the IP address. 
 
-Create a file titled `config.json` in the scrambld directory. Then, add the following line with the IP address from the robot.
+Create a file titled `config.json` in this directory. Then, add the following line with the IP address from the robot.
 
 `{"ip": "the robot's ip address here"}`
 
@@ -25,14 +25,12 @@ In the Move section of URSim, select Base under the list Feature (View is curren
 
 ## Connecting to the Robot
 Go to Installation > Fieldbus > EtherNet/IP, and Enable.
-Go to Settings > System > Network, and select "Static Address". Set the IP address to 10.1.6.101 (or anything between 100-200), and set the Subnet mask to 255.255.254.0.
+Go to Settings > System > Network, and select "Static Address". Set the IP address.
 
 If you need to run terminal commands on the robot control tablet, the username is root and the password is easybot.
 To get into the terminal, hit ctrl-alt-f1. hit ctrl-alt-f7 to go back to polyscope.
 
-To connect to the robot from your laptop, set the ip in config.json to 10.1.6.101 (or whatever else you set the IP address to), and make sure you are connnected to Playground Lab, and your MAC address is whitelisted.
-
-
+To connect to the robot from your laptop, set the ip in config.json to whatever you set the IP address to, and make sure you are connnected to the same network.
 
 ## Installing OnRobot Hand
 

@@ -1,11 +1,4 @@
 .vscode/
 config.json
 __pycache__/
-.idea/workspace.xml
-.idea/
 /.DS_Store
-classifierTesting/
-classifierTest.py
-*.h5
-saveState.txt
-logs/

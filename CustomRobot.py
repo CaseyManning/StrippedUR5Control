@@ -1,7 +1,6 @@
 #import urx
 import math
 from robot import Robot
-import collisions
 
 import urrobot
 
@@ -10,7 +9,6 @@ v = 3 #velocity
 
 class CustomRobot(Robot):
 
-    willCollide = False
     hand = None
 
     def __init__(self, host, use_rt=True):
@@ -32,9 +30,6 @@ class CustomRobot(Robot):
             self.logger.debug("No threshold set, setting it to %s", threshold)
         count = 0
         while True:
-            if self.willCollide: #there is a self collision
-                self.stopj(100)
-                collisions.displayJoints(self)
             dist = self._get_dist(target, joints)
             self.logger.debug("distance to target is: %s, target dist is %s", dist, threshold)
             if not self.secmon.is_program_running():
