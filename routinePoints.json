@@ -22,9 +22,9 @@
         "rp movement2": "exampleSequence2"
     },
     "exampleSequence3": {
-        "rp movement1": "getOil",
-        "rp relative1(r)": "getOil",
+        "rp movement1": "exampleSequence1",
+        "rp relative1(r)": "exampleSequence1",
         "gripper": "open",
-        "rp relative2(r)": "getOil"
+        "rp relative2(r)": "exampleSequence1"
     }
 }

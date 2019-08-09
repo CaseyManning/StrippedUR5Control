@@ -29,3 +29,4 @@ routines.setRobot(robot)
 
 robot.hand.activate_gripper()
 exampleWaypoint()
+exampleSequence1()

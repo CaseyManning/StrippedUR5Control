@@ -1,6 +1,5 @@
 import json
 import time
-import logger
 
 routines = {}
 config = json.load(open('config.json'))
@@ -45,19 +44,19 @@ class Routine():
         global reachedSaveWaypoint
         global saveRoutine
         global saveWaypoint
-        logger.log(str(Routine.num) + ' | ' + self.name)
+        print(str(Routine.num) + ' | ' + self.name)
         if saveRoutine != None and Routine.num == int(saveRoutine):
             reachedSaveRoutine = True
         if not reachedSaveRoutine:
             reachedSaveWaypoint = False
             [robot.set_tcp(tcps[self.moves[x]]) for x in [index for index, value in enumerate(self.moveTypes) if value == 'tcp']]
 
-            logger.log('skpping already completed routine ' + str(time.time() - clock))
+            print('skpping already completed routine ' + str(time.time() - clock))
             Routine.num += 1
             return
         for i in range(len(self.moves)):
             # print(self.moves[i])
-            logger.log(self.moveNames[i])
+            print(self.moveNames[i])
             if reachedSaveWaypoint or self.moveTypes[i] == 'tcp':
                 f = open("saveState.txt", "w")
                 f.write(str(Routine.num) + '\n')
@@ -71,23 +70,23 @@ class Routine():
                     robot.move_relativeb(*tuple(self.moves[i]))
                 elif self.moveTypes[i] == 'gripper':
                     if self.moves[i] == 'close':
-                        logger.log('closing gripper')
+                        print('closing gripper')
                         robot.hand.close_gripper()
                     else:
-                        logger.log('opening gripper')
+                        print('opening gripper')
                         robot.hand.open_gripper(128)
                 elif self.moveTypes[i] == 'tcp':
                     robot.set_tcp(tcps[self.moves[i]])
-                    logger.log("set tcp " + self.moves[i])
+                    print("set tcp " + self.moves[i])
                     robot.move_absolute_j(*robot.getj(), wait=False)
                 elif self.moveTypes[i] == 'wait':
-                    logger.log('sleeping for ' + str(self.moves[i]) + ' seconds.')
+                    print('sleeping for ' + str(self.moves[i]) + ' seconds.')
                     time.sleep(self.moves[i])
                 else:
-                    logger.log('ERROR: Unknown command type ' + self.moveTypes[i])
+                    print('ERROR: Unknown command type ' + self.moveTypes[i])
             if self.moveNames[i] == saveWaypoint:
-                logger.log('We have reached the starting waypoint')
-                logger.log("time taken: " + str(time.time() - clock))
+                print('We have reached the starting waypoint')
+                print("time taken: " + str(time.time() - clock))
                 reachedSaveWaypoint = True
         Routine.num += 1
 
